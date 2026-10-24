@@ -158,22 +158,22 @@ def view_status():
         yes = input('Would you like to view items? (y/n) ')
         print('')
         if yes != 'y' and yes != 'n':
-            os.system('cls')
+            os.system('clear')
             print('Please write y/n')
             print('')
             continue
         elif yes == 'n':
-            os.system('cls')
+            os.system('clear')
             break
         elif yes == 'y':
             if user.items == []:
-                os.system('cls')
+                os.system('clear')
                 print('')
                 print('You have no Items')
                 break
             else:
                 x = 1
-                os.system('cls')
+                os.system('clear')
                 
                 for item in user.items:
                     print(f'{x}.) '+item)
@@ -183,7 +183,7 @@ def view_status():
                     try:
                         num = int(input('Please enter number to view Item: ')) - 1
                         try:
-                            os.system('cls')
+                            os.system('clear')
                             num = user.items[num]
                             print('')
                             print('')
@@ -204,15 +204,15 @@ def view_status():
                                 print('')
                                 continue
                             elif yes == 'n':
-                                os.system('cls')
+                                os.system('clear')
                                 break
                             elif yes == 'y':
-                                os.system('cls')
+                                os.system('clear')
                                 if user.items == []:
                                     print('You have no Items')
                                     break
                                 else:
-                                    os.system('cls')
+                                    os.system('clear')
                                     x = 1
                                     for item in user.items:
                                         print(f'{x}.) '+item)
@@ -232,7 +232,7 @@ def view_status():
                             print('')
                             continue
                     except:
-                        os.system('cls')
+                        os.system('clear')
                         print('Please enter a number')
                         print('')
                         x = 1
@@ -266,7 +266,7 @@ def encounter():
                 print('3.) View items and status')
                 print('')
                 direction = int(input('Which direction? (1-3): '))
-                os.system("cls")
+                os.system("clear")
                 if direction != 1 and direction != 2 and direction != 3:
                     print('Please enter 1, 2, or 3')
                     continue
@@ -278,7 +278,7 @@ def encounter():
                         break
             break
         except:
-            os.system("cls")
+            os.system("clear")
             print('Please enter a number')
     if direction == 1:
         enemy = encounter1
@@ -351,7 +351,7 @@ def fight():
                     print('3.) View items and status')
                     print('')
                     direction = int(input('Pick a direction: '))
-                    os.system("cls")
+                    os.system("clear")
                     if direction != 1 and direction != 2 and direction != 3:
                         print('Please enter 1, 2, or 3')
                         continue
@@ -364,7 +364,7 @@ def fight():
                             break
                 break
             except:
-                os.system('cls')
+                os.system('clear')
                 enemy_profile(incoming_damage)
                 print('Please enter a number')
         if direction == 1:
@@ -425,7 +425,7 @@ def shop():
     while True:
         try:
             item_view = int(input('Which Item would you like to view?: '))
-            os.system("cls")
+            os.system("clear")
             if item_view == 0:
                 break
             try:
@@ -455,7 +455,7 @@ def shop():
                                 user.gold -= item_list[item_view]['cost']
                                 user.add_item(item_view)
                                 items_offered.remove(item_view)
-                                os.system('cls')
+                                os.system('clear')
                                 print('You bought ['+item_view+']')
                                 x = 1
                                 shop_profile()
@@ -466,7 +466,7 @@ def shop():
                                 print(f'You have {user.gold} gold')
                                 break
                             else:
-                                os.system('cls')
+                                os.system('clear')
                                 print('You don\'t have enough gold')
                                 x = 1
                                 shop_profile()
@@ -477,7 +477,7 @@ def shop():
                                 print(f'You have {user.gold} gold')
                                 break
                         else:
-                            os.system('cls')
+                            os.system('clear')
                             x = 1
                             shop_profile()
                             for i in items_offered:
@@ -499,7 +499,7 @@ def shop():
 
 
         except ValueError:
-            os.system("cls")
+            os.system("clear")
             print('Please enter a number')
             x = 1
             shop_profile()
@@ -517,7 +517,7 @@ def campfire_profile():
     print('`-\'.\'`-\'')
 
 def campfire():
-    os.system('cls')
+    os.system('clear')
     campfire_profile()
     user.health = user.max_health
     print('You healed to full!')
@@ -529,7 +529,7 @@ print('Welcome to the wide world of NotEarth, here you can\'t do much because I\
 print('')
 print('To Start,')
 user_name = input('What is your Characters name? ')
-os.system("cls")
+os.system("clear")
 user = Char(name=user_name, max_health=100, health=100, shield=0, baseDMG=7, items=None)
 user_profile()  
 while encounter_number < 10:
@@ -547,7 +547,7 @@ while encounter_number < 10:
         print('Infront of you, you see a '+enemy.name)
         fight()
         if user.living == False:
-            os.system('cls')
+            os.system('clear')
             print('You died. Loser')
             break
         print('Would you like: \n1.) 20 Health\n2.) 15 Gold')
@@ -558,7 +558,7 @@ while encounter_number < 10:
                     print('Please 1 or 2')
                     continue
                 else:
-                    os.system('cls')
+                    os.system('clear')
                     if answer == 1:
                         if user.health <= user.max_health - 20:
                             total_healed = 20
@@ -581,21 +581,21 @@ while encounter_number < 10:
 
 #Final path
 while True:
-    os.system('cls')
+    os.system('clear')
     user_profile()
     print('You see one final stop before the end: \n1.) Shop \n2.) Item \n2.) Campfire')
     try:
         answer_last_stop = int(input('Choose one (1-3): '))
         if answer_last_stop == 1:
-            os.system('cls')
+            os.system('clear')
             shop()
             break
         elif answer_last_stop == 2:
-            os.system('cls')
+            os.system('clear')
             item_recieved()
             break
         elif answer_last_stop == 3:
-            os.system('cls')
+            os.system('clear')
             campfire()
             break
         else:
@@ -610,15 +610,15 @@ while True:
     elif finish_game == 'n':
         os._exit(0)
     else:
-        os.system('cls')
+        os.system('clear')
         print('Enter y or n')
         continue
 enemy = Char(name='Achra, the forgotten', max_health=200, health=200, baseDMG=12, items=None)
 enemy.add_item('Enemy')
 fight()
 if user.living == True:
-    os.system('cls')
+    os.system('clear')
     print('You won. Hurray!')
 else:
-    os.system('cls')
+    os.system('clear')
     print('You died. Loser')
